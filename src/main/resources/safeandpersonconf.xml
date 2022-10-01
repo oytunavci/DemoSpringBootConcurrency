@@ -1,0 +1,122 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+    https://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/util
+    http://www.springframework.org/schema/util/spring-util.xsd">
+
+
+
+
+
+    <bean id="safe1" class="app.pack.SafeDeposit">
+        <constructor-arg index="0" value="1" />
+        <constructor-arg index="1" value="300.0" />
+        <constructor-arg index="2" value="100.0" />
+        <constructor-arg index="3" value="2000.0" />
+        <constructor-arg index="4" value="50.0" />
+    </bean>
+
+
+    <bean id="safe2" class="app.pack.SafeDeposit">
+        <constructor-arg index="0" value="2" />
+        <constructor-arg index="1" value="0.0" />
+        <constructor-arg index="2" value="5000.0" />
+        <constructor-arg index="3" value="1500.0" />
+        <constructor-arg index="4" value="10.0" />
+    </bean>
+
+    <bean id="safe3" class="app.pack.SafeDeposit">
+        <constructor-arg index="0" value="3" />
+        <constructor-arg index="1" value="100.0" />
+        <constructor-arg index="2" value="800.0" />
+        <constructor-arg index="3" value="600.0" />
+        <constructor-arg index="4" value="3.0" />
+    </bean>
+
+    <bean id="safe4" class="app.pack.SafeDeposit">
+        <constructor-arg index="0" value="4" />
+        <constructor-arg index="1" value="500.0" />
+        <constructor-arg index="2" value="500.0" />
+        <constructor-arg index="3" value="2000.0" />
+        <constructor-arg index="4" value="0.0" />
+    </bean>
+
+
+    <bean id="safe5" class="app.pack.SafeDeposit">
+        <constructor-arg index="0" value="5" />
+        <constructor-arg index="1" value="0.0" />
+        <constructor-arg index="2" value="0.0" />
+        <constructor-arg index="3" value="1000.0" />
+        <constructor-arg index="4" value="0.0" />
+    </bean>
+
+
+
+    <bean id="person1" class="app.pack.Person">
+        <property name="name" value="Victoria Beckham"/>
+        <property name="safeDepositAccessList">
+            <list>
+                <ref bean="safe2" />
+            </list>
+        </property>
+    </bean>
+
+    <bean id="person2" class="app.pack.Person">
+        <property name="name" value="David Beckham"/>
+        <property name="safeDepositAccessList">
+            <list>
+                <ref bean="safe1" />
+                <ref bean="safe2" />
+                <ref bean="safe5" />
+            </list>
+        </property>
+    </bean>
+
+
+
+
+    <bean id="person3" class="app.pack.Person">
+        <property name="name" value="Geri Halliwell"/>
+        <property name="safeDepositAccessList">
+            <list>
+                <ref bean="safe2" />
+                <ref bean="safe3" />
+            </list>
+        </property>
+    </bean>
+
+    <bean id="person4" class="app.pack.Person">
+        <property name="name" value="Ryan Giggs"/>
+        <property name="safeDepositAccessList">
+            <list>
+                <ref bean="safe4" />
+                <ref bean="safe5" />
+            </list>
+        </property>
+    </bean>
+
+
+    <util:list id="personList" value-type="java.util.List">
+        <ref bean="person1"/>
+        <ref bean="person2"/>
+        <ref bean="person3"/>
+        <ref bean="person4"/>
+    </util:list>
+
+
+<!--    <bean id="person1" class="app.pack.Person">-->
+<!--        <constructor-arg index="0" value="David Beckham"/>-->
+<!--        <constructor-arg index="1">-->
+<!--            <list>-->
+<!--                <ref bean="safe1"/>-->
+<!--                <ref bean="safe2"/>-->
+<!--                <ref bean="safe5"/>-->
+<!--            </list>-->
+<!--        </constructor-arg>-->
+<!--    </bean>-->
+
+
+
+</beans>
